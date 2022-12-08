@@ -1,0 +1,12 @@
+<div class="container">
+    <div *ngFor="let windowType of windowTypeList">
+        <div class="card" style="width: 18rem;">
+            <img [src]="createImgPath(windowType.imageUrl)" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{windowType.windowTypeName}}</h5>
+              <a href="#" class="btn btn-primary">Delete</a>
+              <a href="#" class="btn btn-primary">Edit</a>
+            </div>
+          </div>
+    </div>
+</div>

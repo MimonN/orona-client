@@ -9,20 +9,24 @@ import {CollapseModule} from 'ngx-bootstrap/collapse';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {HttpClientModule} from '@angular/common/http';
 import { NotFoundComponent } from './error-pages/not-found/not-found.component';
+import { WindowTypeModule } from './_components/window-type/window-type.module';
+import { InternalServerComponent } from './error-pages/internal-server/internal-server.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomePageComponent,
     NavBarComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    InternalServerComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     CollapseModule.forRoot(),
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    WindowTypeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

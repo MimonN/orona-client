@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { WindowType } from 'src/app/_interfaces/window-type/window-type.model';
 import { WindowTypeCreate } from 'src/app/_interfaces/window-type/windowTypeCreate.model';
 import { WindowTypeUpdate } from 'src/app/_interfaces/window-type/windowTypeUpdate.model';
