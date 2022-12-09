@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,6 +13,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { NotFoundComponent } from './error-pages/not-found/not-found.component';
 import { WindowTypeModule } from './_components/window-type/window-type.module';
 import { InternalServerComponent } from './error-pages/internal-server/internal-server.component';
+
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import { InternalServerComponent } from './error-pages/internal-server/internal-
     BrowserAnimationsModule,
     HttpClientModule,
     WindowTypeModule,
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    BsDropdownModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

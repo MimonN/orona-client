@@ -15,15 +15,15 @@
             ngModel
           />
         </div>
-        <br />
+        <hr>
         <div *ngIf="response !== ''" class="image-wrapper">
           <img [src]="createImgPath(response.dbPath)" />
         </div>
-
+<br />
         <app-image-upload
           (onUploadFinished)="uploadFinished($event)"
         ></app-image-upload>
-
+<hr>
         <div class="buttons">
           <button
             type="submit"

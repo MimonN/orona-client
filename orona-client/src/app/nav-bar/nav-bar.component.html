@@ -11,6 +11,21 @@
   
           <div class="collapse navbar-collapse" id="collapseNav" [collapse]="!isCollapsed" [isAnimated]="true">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <div class="nav-item dropdown" dropdown>
+                <li id="button-basic" dropdownToggle type="button" class="nav-link dropdown-toggle"
+                        aria-controls="dropdown-basic">
+                  CMS <span class="caret"></span>
+                </li>
+                <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu"
+                    role="menu" aria-labelledby="button-basic">
+                  <li role="menuitem"><a class="dropdown-item" [routerLink]="['/window-type/list']">Window Type</a></li>
+                  <li role="menuitem"><a class="dropdown-item" href="#">Another action</a></li>
+                  <li role="menuitem"><a class="dropdown-item" href="#">Something else here</a></li>
+                  <li class="divider dropdown-divider"></li>
+                  <li role="menuitem"><a class="dropdown-item" href="#">Separated link</a>
+                  </li>
+                </ul>
+              </div>
               <li class="nav-item">
                 <a class="nav-link" [routerLink]="['/window-type/list']" routerLinkActive="active"
                   [routerLinkActiveOptions]="{exact:true}">Window Type List</a>

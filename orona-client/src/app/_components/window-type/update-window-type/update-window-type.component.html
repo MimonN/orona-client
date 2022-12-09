@@ -19,11 +19,11 @@
             ngModel
           />
         </div>
-        <br />
+        <hr>
         <div *ngIf="response !== ''; else elseBlock">
           <div class="text-center">
             <div>
-              <h3>New Image</h3>
+              <h5>New Image</h5>
             </div>
             <div>
               <img [src]="createImgPath(response.dbPath)" />
@@ -34,7 +34,7 @@
         <ng-template #elseBlock>
           <div class="text-center">
             <div>
-              <h3>Current Image</h3>
+              <h5>Current Image</h5>
             </div>
             <div>
               <img [src]="createImgPath(windowTypeDetails.imageUrl)" />
@@ -45,6 +45,7 @@
         <app-image-upload [id]="id"
           (onUploadFinished)="uploadFinished($event)"
         ></app-image-upload>
+        <hr>
         <div class="buttons">
           <button
             type="submit"
