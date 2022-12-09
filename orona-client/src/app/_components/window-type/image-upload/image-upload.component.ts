@@ -2,11 +2,11 @@ import { HttpClient, HttpErrorResponse, HttpEventType } from '@angular/common/ht
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
-  selector: 'app-upload-image',
-  templateUrl: './upload-image.component.html',
-  styleUrls: ['./upload-image.component.css']
+  selector: 'app-image-upload',
+  templateUrl: './image-upload.component.html',
+  styleUrls: ['./image-upload.component.css']
 })
-export class UploadImageComponent {
+export class ImageUploadComponent {
   progress: number;
   message: string;
   @Output() public onUploadFinished = new EventEmitter();

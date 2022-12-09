@@ -1,5 +1,10 @@
+.navbar {
+  background-color: #215A06;
+}
+
 .active{ 
     font-weight: bold; 
     font-style: italic; 
     color: #fff; 
   }
+
