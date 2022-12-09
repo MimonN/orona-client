@@ -1,0 +1,67 @@
+<div class="container">
+  <h1>Edit Window Type</h1>
+  <hr>
+  <div class="mt-5 d-flex justify-content-center">
+    <div style="width: 400px" class="d-flex justify-content-center">
+      <form
+        *ngIf="windowTypeDetails"
+        #windowTypeForm="ngForm"
+        (ngSubmit)="onSubmit()"
+      >
+        <div class="text-center">
+          <label for="windowType">Window Type Name</label>
+          <input
+            required
+            type="text"
+            name="windowType"
+            class="form-control"
+            [(ngModel)]="windowTypeDetails.windowTypeName"
+            ngModel
+          />
+        </div>
+        <br />
+        <div *ngIf="response !== ''; else elseBlock">
+          <div class="text-center">
+            <div>
+              <h3>New Image</h3>
+            </div>
+            <div>
+              <img [src]="createImgPath(response.dbPath)" />
+            </div>
+          </div>
+        </div>
+
+        <ng-template #elseBlock>
+          <div class="text-center">
+            <div>
+              <h3>Current Image</h3>
+            </div>
+            <div>
+              <img [src]="createImgPath(windowTypeDetails.imageUrl)" />
+            </div>
+          </div>
+        </ng-template>
+        <br />
+        <app-upload-image [id]="id"
+          (onUploadFinished)="uploadFinished($event)"
+        ></app-upload-image>
+        <div class="buttons">
+          <button
+            type="submit"
+            class="btn btn-primary"
+            [disabled]="!windowTypeForm.valid"
+          >
+            Update
+          </button>
+          <button
+            type="button"
+            class="btn btn-secondary"
+            routerLink="/window-type/list"
+          >
+            Back to List
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

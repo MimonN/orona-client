@@ -14,7 +14,7 @@ createWindowTypeRequest: WindowTypeCreate;
 windowTypeName: string;
 imageUrl: string;
 @ViewChild('windowTypeForm') form: NgForm;
-response: {dbPath: ''};
+response: any = '';
 
 constructor(private repository: WindowTypeRepositoryService, private router: Router) {}
 
@@ -34,5 +34,9 @@ constructor(private repository: WindowTypeRepositoryService, private router: Rou
 
   uploadFinished = (event) => {
     this.response = event;
+  }
+
+  public createImgPath = (serverPath: string) => {
+    return `https://localhost:5001/${serverPath}`;
   }
 }

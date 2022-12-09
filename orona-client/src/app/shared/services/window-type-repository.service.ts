@@ -30,7 +30,7 @@ export class WindowTypeRepositoryService {
     return this.http.put<WindowTypeUpdate>(this.baseApiUrl + '/api/WindowType/UpdateWindowType/' + id, updateWindowTypeRequest);
   }
 
-  public deleteWindowType(id: number) {
+  public deleteWindowType(id: number): Observable<WindowType> {
     return this.http.delete<WindowType>(this.baseApiUrl + '/api/WindowType/DeleteWindowType/' + id);
   }
 }

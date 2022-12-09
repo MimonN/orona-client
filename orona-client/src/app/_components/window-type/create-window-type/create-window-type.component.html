@@ -1,12 +1,46 @@
 <div class="container">
-    <h1>Add New Window Type</h1>
-    <form #windowTypeForm="ngForm" (ngSubmit)="onSubmit()">
+  <h1>Add New Window Type</h1>
+  <hr />
+  <div class="mt-5 d-flex justify-content-center">
+    <div style="width: 400px">
+      <form #windowTypeForm="ngForm" (ngSubmit)="onSubmit()">
+        <div class="text-center">
+          <label for="windowType">Window Type Name</label>
+          <input
+            required
+            type="text"
+            name="windowType"
+            class="form-control"
+            placeholder="Enter window type name here"
+            ngModel
+          />
+        </div>
 
-        <label for="windowType">Window Type Name</label>
-        <input required type="text" name="windowType" ngModel>
+        <div *ngIf="response !== ''" class="image-wrapper">
+          <img [src]="createImgPath(response.dbPath)" />
+        </div>
 
-        <app-upload-image (onUploadFinished)="uploadFinished($event)"></app-upload-image>
+        <app-upload-image
+          (onUploadFinished)="uploadFinished($event)"
+        ></app-upload-image>
 
-        <button type="submit">Create</button>
-    </form>
+        <div class="buttons">
+          <button
+            type="submit"
+            class="btn btn-primary"
+            [disabled]="!windowTypeForm.valid"
+          >
+            Create
+          </button>
+          <button
+            type="button"
+            class="btn btn-secondary"
+            routerLink="/window-type/list"
+          >
+            Back to List
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>

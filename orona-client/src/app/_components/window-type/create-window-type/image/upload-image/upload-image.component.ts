@@ -1,5 +1,5 @@
 import { HttpClient, HttpErrorResponse, HttpEventType } from '@angular/common/http';
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-upload-image',
@@ -10,10 +10,13 @@ export class UploadImageComponent {
   progress: number;
   message: string;
   @Output() public onUploadFinished = new EventEmitter();
+  @Input() id;
   
   constructor(private http: HttpClient) { }
+
   ngOnInit() {
   }
+
   uploadFile = (files) => {
     if (files.length === 0) {
       return;
@@ -21,8 +24,15 @@ export class UploadImageComponent {
     let fileToUpload = <File>files[0];
     const formData = new FormData();
     formData.append('file', fileToUpload, fileToUpload.name);
+
+    let apiUrl;
+    if(this.id == null){
+      apiUrl = 'https://localhost:5001/api/upload';
+    } else {
+      apiUrl = 'https://localhost:5001/api/upload/' + this.id;
+    }
     
-    this.http.post('https://localhost:5001/api/upload', formData, {reportProgress: true, observe: 'events'})
+    this.http.post(apiUrl, formData, {reportProgress: true, observe: 'events'})
       .subscribe({
         next: (event) => {
         if (event.type === HttpEventType.UploadProgress)

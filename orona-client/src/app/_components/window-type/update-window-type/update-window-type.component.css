@@ -4,7 +4,7 @@
 }
 
 h1 {
-    font-size: 3rem;
+    font-size: 2rem;
     font-weight: bold;
     text-align: left;
 }
@@ -16,10 +16,6 @@ h1 {
 
 label {
     font-size: large;
-}
-
-input {
-    text-align: center;
 }
 
 .image-wrapper {
@@ -37,6 +33,10 @@ app-upload-image {
     padding: 50px;
 }
 
+input {
+    text-align: center;
+}
+
 input.ng-invalid.ng-touched {
     border: 1px red solid;
 }
@@ -48,6 +48,6 @@ input.ng-invalid.ng-touched {
 
 .buttons>button {
     margin: 0 10px;
-    width: 30%;
+    width: 45%;
 }
 

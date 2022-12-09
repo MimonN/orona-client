@@ -1,12 +1,47 @@
 <div class="container">
-    <div *ngFor="let windowType of windowTypeList">
-        <div class="card" style="width: 18rem;">
-            <img [src]="createImgPath(windowType.imageUrl)" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">{{windowType.windowTypeName}}</h5>
-              <a href="#" class="btn btn-primary">Delete</a>
-              <a href="#" class="btn btn-primary">Edit</a>
-            </div>
-          </div>
+  <div class="d-flex justify-content-between">
+    <h1>Window Type List</h1>
+    <div>
+      <button
+      type="button"
+      class="btn btn-primary"
+      routerLink="/window-type/create"
+    >
+      Create New Window Type
+    </button>
     </div>
+  </div>
+  <hr>
+  
+  <div class="grid">
+    <div *ngFor="let windowType of windowTypeList">
+      <div class="card">
+        <div class="image-wrapper">
+          <img
+          [src]="createImgPath(windowType.imageUrl)"
+          class="card-img-top"
+          alt="window type image"
+        />
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">{{ windowType.windowTypeName }}</h5>
+          <div class="buttons">
+            <a class="btn btn-danger" (click)="openModal(template)">Delete</a>
+            <a [routerLink]="['/window-type', 'edit', windowType.id]" routerLinkActive="router-link-active"  class="btn btn-secondary">Edit</a>
+          </div>
+        </div>
+      </div>
+
+      <ng-template #template>
+        <div class="modal-body text-center">
+          <p>Are you sure you want to delete window type?</p>
+          <button type="button" class="btn btn-default" (click)="confirm(windowType.id)">Yes</button>
+          <button type="button" class="btn btn-primary" (click)="decline()">No</button>
+        </div>
+      </ng-template>
+      
+    </div>
+  </div>
 </div>
+
+
