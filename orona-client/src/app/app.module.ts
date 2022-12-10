@@ -13,6 +13,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { NotFoundComponent } from './error-pages/not-found/not-found.component';
 import { WindowTypeModule } from './_components/window-type/window-type.module';
 import { InternalServerComponent } from './error-pages/internal-server/internal-server.component';
+import { CleaningTypeModule } from './_components/cleaning-type/cleaning-type.module';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { InternalServerComponent } from './error-pages/internal-server/internal-
     HttpClientModule,
     WindowTypeModule,
     ModalModule.forRoot(),
-    BsDropdownModule.forRoot()
+    BsDropdownModule.forRoot(),
+    CleaningTypeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

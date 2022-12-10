@@ -1,0 +1,39 @@
+<div class="container">
+  <h1>Create New Cleaning Type</h1>
+  <hr />
+  <div class="mt-5 d-flex justify-content-center">
+    <div style="width: 400px">
+      <form #cleaningTypeForm="ngForm" (ngSubmit)="onSubmit()">
+        <div class="text-center">
+          <label for="cleaningType">Cleaning Type Name</label>
+          <input
+            required
+            type="text"
+            name="cleaningType"
+            class="form-control"
+            placeholder="Enter cleaning type name here"
+            ngModel
+          />
+          <br />
+          <hr />
+          <div class="buttons">
+            <button
+              type="submit"
+              class="btn btn-primary"
+              [disabled]="!cleaningTypeForm.valid"
+            >
+              Create
+            </button>
+            <button
+              type="button"
+              class="btn btn-secondary"
+              routerLink="/cleaning-type/list"
+            >
+              Back to List
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
