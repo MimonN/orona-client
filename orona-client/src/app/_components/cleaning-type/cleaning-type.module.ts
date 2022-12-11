@@ -5,12 +5,14 @@ import { CleaningTypeRoutingModule } from './cleaning-type-routing.module';
 import { CleaningTypeListComponent } from './cleaning-type-list/cleaning-type-list.component';
 import { CreateCleaningTypeComponent } from './create-cleaning-type/create-cleaning-type.component';
 import { FormsModule } from '@angular/forms';
+import { UpdateCleaningTypeComponent } from './update-cleaning-type/update-cleaning-type.component';
 
 
 @NgModule({
   declarations: [
     CleaningTypeListComponent,
-    CreateCleaningTypeComponent
+    CreateCleaningTypeComponent,
+    UpdateCleaningTypeComponent
   ],
   imports: [
     CommonModule,

@@ -11,20 +11,23 @@ import { CleaningTypeCreate } from 'src/app/_interfaces/cleaning-type/cleaningTy
 })
 export class CreateCleaningTypeComponent {
   createCleaningTypeRequest: CleaningTypeCreate;
-  cleaningTypeName: string;
+  cleaningName: string;
   @ViewChild('cleaningTypeForm') form: NgForm;
   
   constructor(private repository: CleaningTypeRepositoryService, private router: Router) {}
   
     onSubmit(){
       this.createCleaningTypeRequest = {
-        cleaningTypeName: this.form.value.cleaningType
+        cleaningName: this.form.value.cleaningName
       }
   
       this.repository.createCleaningType(this.createCleaningTypeRequest)
       .subscribe({
         next: () => {
           this.router.navigate(['cleaning-type/list']);
+        },
+        error: (err) => {
+          console.log(err);
         }
       })
     }

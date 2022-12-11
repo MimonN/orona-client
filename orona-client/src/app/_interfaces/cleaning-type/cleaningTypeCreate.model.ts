@@ -1,3 +1,3 @@
 export interface CleaningTypeCreate {
-    cleaningTypeName: string
+    cleaningName: string
 }

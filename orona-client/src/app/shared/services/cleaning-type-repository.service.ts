@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { CleaningType } from 'src/app/_interfaces/cleaning-type/cleaning-type.model';
 import { CleaningTypeCreate } from 'src/app/_interfaces/cleaning-type/cleaningTypeCreate.model';
 import { CleaningTypeUpdate } from 'src/app/_interfaces/cleaning-type/cleaningTypeUpdate.model';
@@ -24,8 +25,9 @@ export class CleaningTypeRepositoryService {
   public createCleaningType(createCleaningTypeRequest: CleaningTypeCreate) {
     return this.http.post<CleaningTypeCreate>(this.baseApiUrl + '/api/CleaningType/CreateCleaningType', createCleaningTypeRequest);
   }
-
+  
   public updateCleaningType(id: number, updateCleaningTypeRequest: CleaningTypeUpdate) {
+    console.log("hello", updateCleaningTypeRequest, id);
     return this.http.put<CleaningTypeUpdate>(this.baseApiUrl + '/api/CleaningType/UpdateCleaningType/' + id, updateCleaningTypeRequest);
   }
 
