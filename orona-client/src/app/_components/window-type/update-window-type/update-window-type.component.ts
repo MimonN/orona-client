@@ -14,7 +14,7 @@ export class UpdateWindowTypeComponent implements OnInit{
   updateWindowTypeRequest: WindowTypeUpdate;
   windowTypeDetails: WindowType;
   @ViewChild('windowTypeForm') form: NgForm;
-  response: any = '';
+  response: string = '';
   id: number;
   
   constructor(private repository: WindowTypeRepositoryService, private router: Router, private route: ActivatedRoute) {}
@@ -37,9 +37,16 @@ export class UpdateWindowTypeComponent implements OnInit{
   }
   
     onSubmit(){
-      this.updateWindowTypeRequest = {
-        windowTypeName: this.form.value.windowType,
-        imageUrl: this.response.dbPath
+      if(this.response === ''){
+        this.updateWindowTypeRequest = {
+          windowTypeName: this.form.value.windowType,
+          imageUrl: this.windowTypeDetails.imageUrl
+        }
+      } else {
+        this.updateWindowTypeRequest = {
+          windowTypeName: this.form.value.windowType,
+          imageUrl: this.response
+        }
       }
   
       this.repository.updateWindowType(this.windowTypeDetails.id, this.updateWindowTypeRequest)
@@ -51,7 +58,7 @@ export class UpdateWindowTypeComponent implements OnInit{
     }
   
     uploadFinished = (event) => {
-      this.response = event;
+      this.response = event.dbPath;
     }
   
     public createImgPath = (serverPath: string) => {

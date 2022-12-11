@@ -43,7 +43,6 @@ export class ProductUpdateComponent {
           .subscribe({
             next: (response) => {
               this.productDetails = response;
-              console.log(this.productDetails.cleaningTypeId);
             }
           })
         }

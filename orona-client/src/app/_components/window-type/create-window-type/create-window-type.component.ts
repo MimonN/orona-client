@@ -14,7 +14,7 @@ export class CreateWindowTypeComponent {
   windowTypeName: string;
   imageUrl: string;
   @ViewChild('windowTypeForm') form: NgForm;
-  response: any = '';
+  response: string = '';
 
   constructor(
     private repository: WindowTypeRepositoryService,
@@ -24,7 +24,7 @@ export class CreateWindowTypeComponent {
   onSubmit() {
     this.createWindowTypeRequest = {
       windowTypeName: this.form.value.windowType,
-      imageUrl: this.response.dbPath,
+      imageUrl: this.response,
     };
 
     this.repository.createWindowType(this.createWindowTypeRequest).subscribe({
@@ -35,7 +35,7 @@ export class CreateWindowTypeComponent {
   }
 
   uploadFinished = (event) => {
-    this.response = event;
+    this.response = event.dbPath;
   };
 
   public createImgPath = (serverPath: string) => {
