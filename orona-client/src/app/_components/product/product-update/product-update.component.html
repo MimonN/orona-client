@@ -1,0 +1,80 @@
+<div class="container">
+  <h1>Edit Product</h1>
+  <hr />
+  <div class="mt-5 d-flex justify-content-center">
+    <div style="width: 400px">
+      <form *ngIf="productDetails" #productForm="ngForm" (ngSubmit)="onSubmit()">
+        <div class="text-center">
+          <label for="cleaningTypeId">Cleaning Type</label>
+          <select
+            class="form-select"
+            id="cleaningTypeId"
+            name="cleaningTypeId"
+            required
+            [(ngModel)]="productDetails.cleaningTypeId"
+            ngModel
+          >
+            <option
+              *ngFor="let cleaningType of cleaningTypeList"
+              value="{{ cleaningType.id }}"
+            >
+              {{ cleaningType.cleaningName }}
+            </option>
+            <option value="" disabled selected hidden>
+              Choose Cleaning Type
+            </option>
+          </select>
+
+          <label for="windowTypeId">Window Type</label>
+          <select
+            class="form-select"
+            id="windowTypeId"
+            name="windowTypeId"
+            required
+            [(ngModel)]="productDetails.windowTypeId"
+            ngModel
+          >
+            <option
+              *ngFor="let windowType of windowTypeList"
+              value="{{ windowType.id }}"
+            >
+              {{ windowType.windowTypeName }}
+            </option>
+            <option value="" disabled selected hidden>
+              Choose Window Type
+            </option>
+          </select>
+
+          <label for="price">Price</label>
+          <input
+            required
+            type="number"
+            name="price"
+            class="form-control"
+            placeholder="Enter product price"
+            min="1"
+            ngModel
+            [(ngModel)]="productDetails.price"
+          />
+        </div>
+        <br />
+        <div class="buttons">
+          <button
+            type="submit"
+            class="btn btn-primary"
+            [disabled]="!productForm.valid"
+          >
+            Update
+          </button>
+          <button
+            type="button"
+            class="btn btn-secondary"
+            routerLink="/product/list"
+          >
+            Back to List
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

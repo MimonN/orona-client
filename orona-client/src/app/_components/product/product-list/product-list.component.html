@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="d-flex justify-content-between">
+    <h1>Product List</h1>
+    <div>
+      <button
+        type="button"
+        class="btn btn-primary"
+        routerLink="/product/create"
+      >
+        Create New Product
+      </button>
+    </div>
+  </div>
+  <hr />
+
+  <div class="grid">
+    <div *ngFor="let product of productList">
+      <div class="card">
+        <div class="image-wrapper">
+          <img
+            [src]="createImgPath(product.windowType.imageUrl)"
+            class="card-img-top"
+            alt="product image"
+          />
+        </div>
+        <div class="card-body">
+          <h4 class="card-title">{{ product.windowType.windowTypeName }}</h4>
+          <h4 class="card-title">{{ product.cleaningType.cleaningName }}</h4>
+          <h4 class="card-title">{{ product.price | currency }}</h4>
+          <div class="buttons">
+            <a class="btn btn-danger" (click)="openModal(template)">Delete</a>
+            <a
+              [routerLink]="['/product', 'edit', product.id]"
+              class="btn btn-primary"
+              >Edit</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <ng-template #template>
+        <div class="modal-body text-center">
+          <p>Are you sure you want to delete product?</p>
+          <button type="button" class="btn btn-default" (click)="confirm(product.id)">Yes</button>
+          <button type="button" class="btn btn-primary" (click)="decline()">No</button>
+        </div>
+      </ng-template>
+
+    </div>
+  </div>
+</div>

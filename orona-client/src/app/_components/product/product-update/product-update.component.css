@@ -1,0 +1,37 @@
+
+.container {
+    margin-top: 15px;
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    text-align: left;
+}
+
+label {
+    font-size: large;
+}
+
+input {
+    text-align: left;
+}
+
+input.ng-invalid.ng-touched {
+    border: 1px red solid;
+}
+
+select.ng-invalid.ng-touched {
+    border: 1px red solid;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+}
+
+.buttons>button {
+    margin: 0 10px;
+    width: 30%;
+}
+

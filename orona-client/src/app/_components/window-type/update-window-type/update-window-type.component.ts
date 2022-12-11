@@ -13,8 +13,6 @@ import { WindowTypeUpdate } from 'src/app/_interfaces/window-type/windowTypeUpda
 export class UpdateWindowTypeComponent implements OnInit{
   updateWindowTypeRequest: WindowTypeUpdate;
   windowTypeDetails: WindowType;
-  windowTypeName: string;
-  imageUrl: string;
   @ViewChild('windowTypeForm') form: NgForm;
   response: any = '';
   id: number;

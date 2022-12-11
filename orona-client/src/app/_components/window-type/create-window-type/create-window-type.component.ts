@@ -7,36 +7,38 @@ import { WindowTypeCreate } from 'src/app/_interfaces/window-type/windowTypeCrea
 @Component({
   selector: 'app-create-window-type',
   templateUrl: './create-window-type.component.html',
-  styleUrls: ['./create-window-type.component.css']
+  styleUrls: ['./create-window-type.component.css'],
 })
 export class CreateWindowTypeComponent {
-createWindowTypeRequest: WindowTypeCreate;
-windowTypeName: string;
-imageUrl: string;
-@ViewChild('windowTypeForm') form: NgForm;
-response: any = '';
+  createWindowTypeRequest: WindowTypeCreate;
+  windowTypeName: string;
+  imageUrl: string;
+  @ViewChild('windowTypeForm') form: NgForm;
+  response: any = '';
 
-constructor(private repository: WindowTypeRepositoryService, private router: Router) {}
+  constructor(
+    private repository: WindowTypeRepositoryService,
+    private router: Router
+  ) {}
 
-  onSubmit(){
+  onSubmit() {
     this.createWindowTypeRequest = {
       windowTypeName: this.form.value.windowType,
-      imageUrl: this.response.dbPath
-    }
+      imageUrl: this.response.dbPath,
+    };
 
-    this.repository.createWindowType(this.createWindowTypeRequest)
-    .subscribe({
+    this.repository.createWindowType(this.createWindowTypeRequest).subscribe({
       next: () => {
         this.router.navigate(['window-type/list']);
-      }
-    })
+      },
+    });
   }
 
   uploadFinished = (event) => {
     this.response = event;
-  }
+  };
 
   public createImgPath = (serverPath: string) => {
     return `https://localhost:5001/${serverPath}`;
-  }
+  };
 }

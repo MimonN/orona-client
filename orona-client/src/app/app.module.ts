@@ -14,6 +14,7 @@ import { NotFoundComponent } from './error-pages/not-found/not-found.component';
 import { WindowTypeModule } from './_components/window-type/window-type.module';
 import { InternalServerComponent } from './error-pages/internal-server/internal-server.component';
 import { CleaningTypeModule } from './_components/cleaning-type/cleaning-type.module';
+import { ProductModule } from './_components/product/product.module';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { CleaningTypeModule } from './_components/cleaning-type/cleaning-type.mo
     WindowTypeModule,
     ModalModule.forRoot(),
     BsDropdownModule.forRoot(),
-    CleaningTypeModule
+    CleaningTypeModule,
+    ProductModule
   ],
   providers: [],
   bootstrap: [AppComponent]
