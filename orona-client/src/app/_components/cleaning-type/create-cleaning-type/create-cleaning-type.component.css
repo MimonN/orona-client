@@ -13,6 +13,11 @@ label {
     font-size: large;
 }
 
+.errMessage {
+    text-align: center;
+    color: red;
+}
+
 input {
     text-align: center;
 }

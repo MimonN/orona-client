@@ -9,6 +9,11 @@ h1 {
     text-align: left;
 }
 
+.errMessage {
+    text-align: center;
+    color: red;
+}
+
 label {
     font-size: large;
 }

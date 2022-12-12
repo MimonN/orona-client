@@ -1,7 +1,9 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CleaningTypeRepositoryService } from 'src/app/shared/services/cleaning-type-repository.service';
+import { ErrorHandlerService } from 'src/app/shared/services/error-handler.service';
 import { ProductRepositoryService } from 'src/app/shared/services/product-repository.service';
 import { WindowTypeRepositoryService } from 'src/app/shared/services/window-type-repository.service';
 import { CleaningType } from 'src/app/_interfaces/cleaning-type/cleaning-type.model';
@@ -18,12 +20,14 @@ export class ProductCreateComponent {
   windowTypeList: WindowType[];
   createProductRequest: ProductCreate;
   @ViewChild('productForm') form: NgForm;
+  errorMessage: string = '';
 
   constructor(
     private productRepo: ProductRepositoryService,
     private cleaningTypeRepo: CleaningTypeRepositoryService,
     private windowTypeRepo: WindowTypeRepositoryService,
-    private router: Router
+    private router: Router,
+    private errorHandler: ErrorHandlerService
   ) {}
 
   ngOnInit(): void {
@@ -42,6 +46,10 @@ export class ProductCreateComponent {
     .subscribe({
       next: () => {
         this.router.navigate(['product/list']);
+      },
+      error: (err: HttpErrorResponse) => {
+        this.errorHandler.handleError(err);
+        this.errorMessage = this.errorHandler.errorMessage;
       }
     });
   }

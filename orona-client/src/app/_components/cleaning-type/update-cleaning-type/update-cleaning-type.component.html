@@ -1,6 +1,9 @@
 <div class="container">
   <h1>Update Cleaning Type</h1>
   <hr />
+  <div *ngIf="errorMessage !== ''" class="errMessage">
+    <h5>{{errorMessage}}</h5>
+  </div>
   <div class="mt-5 d-flex justify-content-center">
     <div style="width: 400px">
       <form *ngIf="cleaningTypeDetails" #cleaningTypeForm="ngForm" (ngSubmit)="onSubmit()">

@@ -1,6 +1,8 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ErrorHandlerService } from 'src/app/shared/services/error-handler.service';
 import { WindowTypeRepositoryService } from 'src/app/shared/services/window-type-repository.service';
 import { WindowTypeCreate } from 'src/app/_interfaces/window-type/windowTypeCreate.model';
 
@@ -15,10 +17,12 @@ export class CreateWindowTypeComponent {
   imageUrl: string;
   @ViewChild('windowTypeForm') form: NgForm;
   response: string = '';
+  errorMessage: string = '';
 
   constructor(
     private repository: WindowTypeRepositoryService,
-    private router: Router
+    private router: Router,
+    private errorHandler: ErrorHandlerService
   ) {}
 
   onSubmit() {
@@ -31,6 +35,10 @@ export class CreateWindowTypeComponent {
       next: () => {
         this.router.navigate(['window-type/list']);
       },
+      error: (err: HttpErrorResponse) => {
+        this.errorHandler.handleError(err);
+        this.errorMessage = this.errorHandler.errorMessage;
+      }
     });
   }
 

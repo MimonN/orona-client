@@ -27,7 +27,6 @@ export class CleaningTypeRepositoryService {
   }
   
   public updateCleaningType(id: number, updateCleaningTypeRequest: CleaningTypeUpdate) {
-    console.log("hello", updateCleaningTypeRequest, id);
     return this.http.put<CleaningTypeUpdate>(this.baseApiUrl + '/api/CleaningType/UpdateCleaningType/' + id, updateCleaningTypeRequest);
   }
 

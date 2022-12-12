@@ -9,6 +9,11 @@ h1 {
     text-align: left;
 }
 
+.errMessage {
+    text-align: center;
+    color: red;
+}
+
 .custom-card {
     padding: 5px;
     border: 2px solid pink;

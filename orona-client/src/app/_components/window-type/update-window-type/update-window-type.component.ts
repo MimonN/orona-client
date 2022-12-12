@@ -1,6 +1,8 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ErrorHandlerService } from 'src/app/shared/services/error-handler.service';
 import { WindowTypeRepositoryService } from 'src/app/shared/services/window-type-repository.service';
 import { WindowType } from 'src/app/_interfaces/window-type/window-type.model';
 import { WindowTypeUpdate } from 'src/app/_interfaces/window-type/windowTypeUpdate.model';
@@ -16,8 +18,9 @@ export class UpdateWindowTypeComponent implements OnInit{
   @ViewChild('windowTypeForm') form: NgForm;
   response: string = '';
   id: number;
+  errorMessage: string = '';
   
-  constructor(private repository: WindowTypeRepositoryService, private router: Router, private route: ActivatedRoute) {}
+  constructor(private repository: WindowTypeRepositoryService, private router: Router, private route: ActivatedRoute, private errorHandler: ErrorHandlerService) {}
 
   ngOnInit(): void {
     this.route.paramMap.subscribe({
@@ -53,6 +56,10 @@ export class UpdateWindowTypeComponent implements OnInit{
       .subscribe({
         next: () => {
           this.router.navigate(['window-type/list']);
+        },
+        error: (err: HttpErrorResponse) => {
+          this.errorHandler.handleError(err);
+          this.errorMessage = this.errorHandler.errorMessage;
         }
       })
     }

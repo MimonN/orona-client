@@ -1,7 +1,9 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CleaningTypeRepositoryService } from 'src/app/shared/services/cleaning-type-repository.service';
+import { ErrorHandlerService } from 'src/app/shared/services/error-handler.service';
 import { CleaningType } from 'src/app/_interfaces/cleaning-type/cleaning-type.model';
 import { CleaningTypeUpdate } from 'src/app/_interfaces/cleaning-type/cleaningTypeUpdate.model';
 
@@ -16,11 +18,13 @@ export class UpdateCleaningTypeComponent {
   cleaningName: string;
   @ViewChild('cleaningTypeForm') form: NgForm;
   id: number;
+  errorMessage: string = '';
 
   constructor(
     private repository: CleaningTypeRepositoryService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private errorHandler: ErrorHandlerService
   ) {}
 
   ngOnInit(): void {
@@ -53,8 +57,9 @@ export class UpdateCleaningTypeComponent {
         next: () => {
           this.router.navigate(['cleaning-type/list']);
         },
-        error: (err) => {
-          console.log(err);
+        error: (err: HttpErrorResponse) => {
+          this.errorHandler.handleError(err);
+          this.errorMessage = this.errorHandler.errorMessage;
         }
       });
   }
