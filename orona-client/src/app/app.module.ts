@@ -11,10 +11,10 @@ import {CollapseModule} from 'ngx-bootstrap/collapse';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {HttpClientModule} from '@angular/common/http';
 import { NotFoundComponent } from './error-pages/not-found/not-found.component';
-import { WindowTypeModule } from './_components/window-type/window-type.module';
+import { WindowTypeModule } from './_components/CMS/window-type/window-type.module';
 import { InternalServerComponent } from './error-pages/internal-server/internal-server.component';
-import { CleaningTypeModule } from './_components/cleaning-type/cleaning-type.module';
-import { ProductModule } from './_components/product/product.module';
+import { CleaningTypeModule } from './_components/CMS/cleaning-type/cleaning-type.module';
+import { ProductModule } from './_components/CMS/product/product.module';
 
 
 @NgModule({

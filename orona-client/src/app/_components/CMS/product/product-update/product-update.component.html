@@ -8,26 +8,6 @@
     <div style="width: 400px">
       <form *ngIf="productDetails" #productForm="ngForm" (ngSubmit)="onSubmit()">
         <div class="text-center">
-          <label for="cleaningTypeId">Cleaning Type</label>
-          <select
-            class="form-select"
-            id="cleaningTypeId"
-            name="cleaningTypeId"
-            required
-            [(ngModel)]="productDetails.cleaningTypeId"
-            ngModel
-          >
-            <option
-              *ngFor="let cleaningType of cleaningTypeList"
-              value="{{ cleaningType.id }}"
-            >
-              {{ cleaningType.cleaningName }}
-            </option>
-            <option value="" disabled selected hidden>
-              Choose Cleaning Type
-            </option>
-          </select>
-
           <label for="windowTypeId">Window Type</label>
           <select
             class="form-select"
@@ -45,6 +25,26 @@
             </option>
             <option value="" disabled selected hidden>
               Choose Window Type
+            </option>
+          </select>
+
+          <label for="cleaningTypeId">Cleaning Type</label>
+          <select
+            class="form-select"
+            id="cleaningTypeId"
+            name="cleaningTypeId"
+            required
+            [(ngModel)]="productDetails.cleaningTypeId"
+            ngModel
+          >
+            <option
+              *ngFor="let cleaningType of cleaningTypeList"
+              value="{{ cleaningType.id }}"
+            >
+              {{ cleaningType.cleaningName }}
+            </option>
+            <option value="" disabled selected hidden>
+              Choose Cleaning Type
             </option>
           </select>
 
