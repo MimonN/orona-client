@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { WindowType } from 'src/app/_interfaces/window-type/window-type.model';
 import { WindowTypeCreate } from 'src/app/_interfaces/window-type/windowTypeCreate.model';
 import { WindowTypeUpdate } from 'src/app/_interfaces/window-type/windowTypeUpdate.model';
+import { WindowTypeWithProdAndClean } from 'src/app/_interfaces/window-type/windowTypeWithProdAndClean.model';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -16,6 +17,10 @@ export class WindowTypeRepositoryService {
 
   public getWindowTypes() {
     return this.http.get<WindowType[]>(this.baseApiUrl + '/api/WindowType/GetAllWindowTypes');
+  }
+
+  public getWindowTypesWithProductsAndCleaningTypes() {
+    return this.http.get<WindowTypeWithProdAndClean[]>(this.baseApiUrl + '/api/WindowType/GetAllWindowTypesWithProductsAndCleaningTypes');
   }
 
   public getWindowTypeById(id: number) {

@@ -15,6 +15,7 @@ import { WindowTypeModule } from './_components/CMS/window-type/window-type.modu
 import { InternalServerComponent } from './error-pages/internal-server/internal-server.component';
 import { CleaningTypeModule } from './_components/CMS/cleaning-type/cleaning-type.module';
 import { ProductModule } from './_components/CMS/product/product.module';
+import { ProductListModule } from './_components/shop/product-list/product-list.module';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { ProductModule } from './_components/CMS/product/product.module';
     ModalModule.forRoot(),
     BsDropdownModule.forRoot(),
     CleaningTypeModule,
-    ProductModule
+    ProductModule,
+    ProductListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

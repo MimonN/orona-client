@@ -5,7 +5,7 @@
       <button
         type="button"
         class="btn btn-primary"
-        routerLink="/product/create"
+        routerLink="/cms/product/create"
       >
         Create New Product
       </button>
@@ -30,7 +30,7 @@
           <div class="buttons">
             <a class="btn btn-danger" (click)="openModal(template)">Delete</a>
             <a
-              [routerLink]="['/product', 'edit', product.id]"
+              [routerLink]="['/cms', 'product', 'edit', product.id]"
               class="btn btn-primary"
               >Edit</a
             >

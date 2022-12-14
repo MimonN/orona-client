@@ -45,7 +45,7 @@ export class ProductCreateComponent {
     this.productRepo.createProduct(this.createProductRequest)
     .subscribe({
       next: () => {
-        this.router.navigate(['product/list']);
+        this.router.navigate(['cms/product/list']);
       },
       error: (err: HttpErrorResponse) => {
         this.errorHandler.handleError(err);

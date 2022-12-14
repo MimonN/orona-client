@@ -1,10 +1,26 @@
 .navbar {
-  background-color: #215A06;
+  background-color: #215a06;
 }
 
-.active{ 
-    font-weight: bold; 
-    font-style: italic; 
-    color: #fff; 
-  }
+.navbar-brand {
+  color: white;
+}
+
+.active {
+  font-weight: bold;
+  font-style: italic;
+  color: #fff;
+}
+
+.nav-link {
+  color: white;
+}
+
+.nav-link.active {
+  color: white;
+}
+
+
+
+
 

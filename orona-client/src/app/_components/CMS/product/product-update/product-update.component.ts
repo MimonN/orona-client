@@ -64,7 +64,7 @@ export class ProductUpdateComponent {
     this.productRepo.updateProduct(this.id, this.productUpdateRequest)
     .subscribe({
       next: () => {
-        this.router.navigate(['product/list']);
+        this.router.navigate(['cms/product/list']);
       },
       error: (err: HttpErrorResponse) => {
         this.errorHandler.handleError(err);

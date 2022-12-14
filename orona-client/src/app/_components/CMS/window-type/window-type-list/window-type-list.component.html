@@ -5,7 +5,7 @@
       <button
       type="button"
       class="btn btn-primary"
-      routerLink="/window-type/create"
+      routerLink="/cms/window-type/create"
     >
       Create New Window Type
     </button>
@@ -27,7 +27,7 @@
           <h4 class="card-title">{{ windowType.windowTypeName }}</h4>
           <div class="buttons">
             <a class="btn btn-danger" (click)="openModal(template)">Delete</a>
-            <a [routerLink]="['/window-type', 'edit', windowType.id]"   class="btn btn-primary">Edit</a>
+            <a [routerLink]="['/cms','window-type', 'edit', windowType.id]"   class="btn btn-primary">Edit</a>
           </div>
         </div>
       </div>

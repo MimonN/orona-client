@@ -55,7 +55,7 @@ export class UpdateWindowTypeComponent implements OnInit{
       this.repository.updateWindowType(this.windowTypeDetails.id, this.updateWindowTypeRequest)
       .subscribe({
         next: () => {
-          this.router.navigate(['window-type/list']);
+          this.router.navigate(['cms/window-type/list']);
         },
         error: (err: HttpErrorResponse) => {
           this.errorHandler.handleError(err);

@@ -1,0 +1,25 @@
+<div class="container">
+  <ng-container *ngIf="windowTypeList">
+    <ng-container *ngFor="let winType of windowTypeList">
+      <div class="window-type-box">
+        <div class="win-type-name-box">
+          <h5>Window Type: {{ winType.windowTypeName }}</h5>
+        </div>
+        <div class="image-box">
+          <img [src]="createImgPath(winType.imageUrl)" />
+        </div>
+        <div class="product-card-box">
+          <ng-container *ngFor="let product of winType.products">
+            <div class="product-card">
+              <p>Cleaning Type: {{ product.cleaningType.cleaningName }}</p>
+              <p>Price: {{ product.price | currency }}</p>
+              <div>
+                <button class="btn btn-primary">Details</button>
+              </div>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </ng-container>
+  </ng-container>
+</div>

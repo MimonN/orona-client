@@ -55,7 +55,7 @@ export class UpdateCleaningTypeComponent {
       )
       .subscribe({
         next: () => {
-          this.router.navigate(['cleaning-type/list']);
+          this.router.navigate(['cms/cleaning-type/list']);
         },
         error: (err: HttpErrorResponse) => {
           this.errorHandler.handleError(err);

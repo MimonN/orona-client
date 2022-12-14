@@ -33,7 +33,7 @@ export class CreateWindowTypeComponent {
 
     this.repository.createWindowType(this.createWindowTypeRequest).subscribe({
       next: () => {
-        this.router.navigate(['window-type/list']);
+        this.router.navigate(['cms/window-type/list']);
       },
       error: (err: HttpErrorResponse) => {
         this.errorHandler.handleError(err);

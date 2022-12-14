@@ -5,7 +5,7 @@
       <button
         type="button"
         class="btn btn-primary"
-        routerLink="/cleaning-type/create"
+        routerLink="/cms/cleaning-type/create"
       >
         Create New Cleaning Type
       </button>
@@ -20,7 +20,7 @@
           <div class="buttons">
             <a class="btn btn-danger" (click)="openModal(template)">Delete</a>
             <a
-              [routerLink]="['/cleaning-type', 'edit', cleaningType.id]"
+              [routerLink]="['/cms', 'cleaning-type', 'edit', cleaningType.id]"
               class="btn btn-primary"
               >Edit</a
             >
