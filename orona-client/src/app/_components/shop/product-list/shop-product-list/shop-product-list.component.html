@@ -14,7 +14,17 @@
               <p>Cleaning Type: {{ product.cleaningType.cleaningName }}</p>
               <p>Price: {{ product.price | currency }}</p>
               <div>
-                <button class="btn btn-primary">Details</button>
+                <button
+                  class="btn btn-primary"
+                  [routerLink]="[
+                    '/shop',
+                    'product',
+                    'product-details',
+                    product.id
+                  ]"
+                >
+                  Details
+                </button>
               </div>
             </div>
           </ng-container>
